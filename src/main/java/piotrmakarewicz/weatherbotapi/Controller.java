@@ -32,7 +32,7 @@ public class Controller {
         return response;
     }
 
-    private static String handle24hForecastIntent(GoogleCloudDialogflowV2WebhookRequest request) {
+    private static String getResponseTextFor24hForecastIntent(GoogleCloudDialogflowV2WebhookRequest request) {
         String city = (String) request.getQueryResult().getParameters().get("geo-city");
         return "I recognized you want a 24 h Forecast for "+city;
     }
@@ -49,7 +49,7 @@ public class Controller {
         var responseText = "I am not sure what you mean. Can you say it in a different way?";
 
         switch (intentString) {
-            case "24hForecast" -> handle24hForecastIntent(request);
+            case "24hForecast" -> responseText = getResponseTextFor24hForecastIntent(request);
             default -> {
             }
         }
