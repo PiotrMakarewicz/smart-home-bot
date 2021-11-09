@@ -10,7 +10,7 @@ public class WebhookResponse {
         this.fulfillmentMessages = fulfillmentMessages;
     }
 
-    public List<String>  getFulfillmentMessages(){
+    public List<String> getFulfillmentMessages(){
         return fulfillmentMessages;
     }
 }
