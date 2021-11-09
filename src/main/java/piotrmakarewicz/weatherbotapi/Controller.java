@@ -21,8 +21,7 @@ public class Controller {
 
     public static GoogleCloudDialogflowV2WebhookResponse createResponseFromStrings(String[] messageStrings){
         var response = new GoogleCloudDialogflowV2WebhookResponse();
-        var messagesStrings = new String[] {"baba", "msmsm"};
-        var intentMessages = Arrays.stream(messagesStrings).map(s -> {
+        var intentMessages = Arrays.stream(messageStrings).map(s -> {
             var intentMessage = new GoogleCloudDialogflowV2IntentMessage();
             var intentMessageText = new GoogleCloudDialogflowV2IntentMessageText();
             intentMessageText.setText(List.of(s));
@@ -33,18 +32,37 @@ public class Controller {
         return response;
     }
 
+    private static String handle24hForecastIntent(GoogleCloudDialogflowV2WebhookRequest request) {
+        String city = (String) request.getQueryResult().getParameters().get("geo-city");
+        return "I recognized you want a 24 h Forecast for "+city;
+    }
+
     @PostMapping(value="/", produces = "application/json")
-    public GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody String rawRequest) throws IOException {
+    public static GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody String rawRequest) throws IOException {
         GoogleCloudDialogflowV2WebhookRequest request = jacksonFactory.createJsonParser(rawRequest)
                 .parse(GoogleCloudDialogflowV2WebhookRequest.class);
 
         System.out.println("RECEIVED REQUEST: " + request);
 
+        var intentString = request.getQueryResult().getIntent().getDisplayName();
+
+        var responseText = "I am not sure what you mean. Can you say it in a different way?";
+
+        switch (intentString) {
+            case "24hForecast" -> handle24hForecastIntent(request);
+            default -> {
+            }
+        }
+
         StringWriter stringWriter = new StringWriter();
         var jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
-        GoogleCloudDialogflowV2WebhookResponse response = createResponseFromStrings(new String[] {"It will be raining as hell!"});
+
+        var response = createResponseFromStrings(new String[] {responseText});
+
         jsonGenerator.serialize(response);
         jsonGenerator.flush();
         return response;
     }
+
+
 }
