@@ -38,7 +38,7 @@ public class Controller {
         GoogleCloudDialogflowV2WebhookRequest request = jacksonFactory.createJsonParser(rawRequest)
                 .parse(GoogleCloudDialogflowV2WebhookRequest.class);
 
-        System.out.println("INTENT IS:" + request.getOriginalDetectIntentRequest());
+        System.out.println("RECEIVED REQUEST: " + request);
 
         StringWriter stringWriter = new StringWriter();
         var jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
