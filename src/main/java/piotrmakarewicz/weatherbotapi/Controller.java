@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 public class Controller {
     private static final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
 
-    public static GoogleCloudDialogflowV2WebhookResponse getBoringResponse(){
+    public static GoogleCloudDialogflowV2WebhookResponse createResponseFromStrings(String[] messageStrings){
         var response = new GoogleCloudDialogflowV2WebhookResponse();
-        var messagesStr = new String[] {"baba", "msmsm"};
-        var intentMessages = Arrays.stream(messagesStr).map(s -> {
+        var messagesStrings = new String[] {"baba", "msmsm"};
+        var intentMessages = Arrays.stream(messagesStrings).map(s -> {
             var intentMessage = new GoogleCloudDialogflowV2IntentMessage();
             var intentMessageText = new GoogleCloudDialogflowV2IntentMessageText();
             intentMessageText.setText(List.of(s));
@@ -40,7 +40,7 @@ public class Controller {
 
         StringWriter stringWriter = new StringWriter();
         var jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
-        GoogleCloudDialogflowV2WebhookResponse response = getBoringResponse();
+        GoogleCloudDialogflowV2WebhookResponse response = createResponseFromStrings(new String[] {"It will be raining as hell!"});
         jsonGenerator.serialize(response);
         jsonGenerator.flush();
         return response;
