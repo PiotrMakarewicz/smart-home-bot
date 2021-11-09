@@ -1,4 +1,6 @@
 package piotrmakarewicz.weatherbotapi;
+
+import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2IntentMessage;
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2IntentMessageText;
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2WebhookRequest;
@@ -6,15 +8,16 @@ import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2Webhoo
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import piotrmakarewicz.weatherbotapi.responses.WebhookResponse;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 public class Controller {
+    private static final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
 
     public static GoogleCloudDialogflowV2WebhookResponse getBoringResponse(){
         var response = new GoogleCloudDialogflowV2WebhookResponse();
@@ -31,8 +34,15 @@ public class Controller {
     }
 
     @PostMapping(value="/", produces = "application/json")
-    public GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody GoogleCloudDialogflowV2WebhookRequest request){
-        System.out.println(request);
-        return getBoringResponse();
+    public GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody String rawRequest) throws IOException {
+        GoogleCloudDialogflowV2WebhookRequest request = jacksonFactory.createJsonParser(rawRequest)
+                .parse(GoogleCloudDialogflowV2WebhookRequest.class);
+
+        StringWriter stringWriter = new StringWriter();
+        var jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
+        GoogleCloudDialogflowV2WebhookResponse response = getBoringResponse();
+        jsonGenerator.serialize(response);
+        jsonGenerator.flush();
+        return response;
     }
 }
