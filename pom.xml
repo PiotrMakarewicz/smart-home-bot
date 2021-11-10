@@ -29,31 +29,26 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-dialogflow -->
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-dialogflow</artifactId>
 			<version>4.2.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.api/api-common -->
 		<dependency>
 			<groupId>com.google.api</groupId>
 			<artifactId>api-common</artifactId>
 			<version>2.1.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-dialogflow -->
 		<dependency>
 			<groupId>com.google.apis</groupId>
 			<artifactId>google-api-services-dialogflow</artifactId>
 			<version>v3-rev20211022-1.32.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
 		<dependency>
 			<groupId>com.google.api-client</groupId>
 			<artifactId>google-api-client</artifactId>
 			<version>1.32.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client-jackson2 -->
 		<dependency>
 			<groupId>com.google.api-client</groupId>
 			<artifactId>google-api-client-jackson2</artifactId>
@@ -64,11 +59,11 @@
 			<artifactId>google-http-client-jackson2</artifactId>
 			<version>1.32.1</version>
 		</dependency>
-		<!-- Thanks for using https://jar-download.com -->
-
-
-
-
+		<dependency>
+			<groupId>io.github.cdimascio</groupId>
+			<artifactId>dotenv-java</artifactId>
+			<version>2.2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

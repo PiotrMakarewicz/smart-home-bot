@@ -5,6 +5,8 @@ import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2Intent
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2IntentMessageText;
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2WebhookRequest;
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2WebhookResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +17,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 @RestController
 public class Controller {
-    private static final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
+    private final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
+    private final OpenWeatherAPIManager openWeatherAPIManager;
 
-    public static GoogleCloudDialogflowV2WebhookResponse createResponseFromStrings(String[] messageStrings){
+    @Autowired
+    public Controller(OpenWeatherAPIManager openWeatherAPIManager) {
+        this.openWeatherAPIManager = openWeatherAPIManager;
+        System.out.println("Controller created");
+    }
+
+    public GoogleCloudDialogflowV2WebhookResponse createResponseFromStrings(String[] messageStrings){
         var response = new GoogleCloudDialogflowV2WebhookResponse();
         var intentMessages = Arrays.stream(messageStrings).map(s -> {
             var intentMessage = new GoogleCloudDialogflowV2IntentMessage();
@@ -32,13 +42,13 @@ public class Controller {
         return response;
     }
 
-    private static String getResponseTextFor24hForecastIntent(GoogleCloudDialogflowV2WebhookRequest request) {
+    private String getResponseTextFor24hForecastIntent(GoogleCloudDialogflowV2WebhookRequest request) {
         String city = (String) request.getQueryResult().getParameters().get("geo-city");
         return "I recognized you want a 24 h Forecast for "+city;
     }
 
     @PostMapping(value="/", produces = "application/json")
-    public static GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody String rawRequest) throws IOException {
+    public GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody String rawRequest) throws IOException {
         GoogleCloudDialogflowV2WebhookRequest request = jacksonFactory.createJsonParser(rawRequest)
                 .parse(GoogleCloudDialogflowV2WebhookRequest.class);
 
@@ -46,12 +56,11 @@ public class Controller {
 
         var intentString = request.getQueryResult().getIntent().getDisplayName();
 
-        var responseText = "I am not sure what you mean. Can you say it in a different way?";
+        String responseText;
 
         switch (intentString) {
             case "24hForecast" -> responseText = getResponseTextFor24hForecastIntent(request);
-            default -> {
-            }
+            default -> responseText = "I am not sure what you mean. Can you say it in a different way?";
         }
 
         StringWriter stringWriter = new StringWriter();
