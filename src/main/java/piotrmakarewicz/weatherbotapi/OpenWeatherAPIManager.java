@@ -18,14 +18,14 @@ public class OpenWeatherAPIManager {
     private void loadEnvariables() {
         try {
             Dotenv dotenv = Dotenv.load();
-            this.key = dotenv.get("HD_OPENWEATHERAPI_KEY");
+            this.key = dotenv.get("OPENWEATHERAPI_KEY");
         } catch (DotenvException e){
             this.key = null;
         }
         if (this.key == null){
-            this.key = System.getenv("HD_OPENWEATHERAPI_KEY");
+            this.key = System.getenv("OPENWEATHERAPI_KEY");
             if (this.key == null) {
-                throw new RuntimeException("Failed to load API key from HD_OPENWEATHERAPI_KEY environment variable.");
+                throw new RuntimeException("Failed to load API key from OPENWEATHERAPI_KEY environment variable.");
             }
         }
     }
