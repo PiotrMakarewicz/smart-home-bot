@@ -53,6 +53,8 @@ public class Controller {
 
         var intentString = request.getQueryResult().getIntent().getDisplayName();
 
+        System.out.println("INTENT STRING: "+ intentString);
+
         String responseText;
 
         switch (intentString) {
