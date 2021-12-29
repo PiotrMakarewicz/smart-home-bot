@@ -21,11 +21,8 @@ import java.util.stream.Collectors;
 @RestController
 public class Controller {
     private final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
-    private final OpenWeatherAPIManager openWeatherAPIManager;
 
-    @Autowired
-    public Controller(OpenWeatherAPIManager openWeatherAPIManager) {
-        this.openWeatherAPIManager = openWeatherAPIManager;
+    public Controller() {
         System.out.println("Controller created");
     }
 
@@ -42,9 +39,9 @@ public class Controller {
         return response;
     }
 
-    private String getResponseTextFor24hForecastIntent(GoogleCloudDialogflowV2WebhookRequest request) {
-        String city = (String) request.getQueryResult().getParameters().get("geo-city");
-        return "I recognized you want a 24 h Forecast for "+city;
+    private String turnLightOn(GoogleCloudDialogflowV2WebhookRequest request) {
+        String room = (String) request.getQueryResult().getParameters().get("room");
+        return "Zapalam światło w pomieszczeniu: "+room+ ".";
     }
 
     @PostMapping(value="/", produces = "application/json")
@@ -59,8 +56,8 @@ public class Controller {
         String responseText;
 
         switch (intentString) {
-            case "24hForecast" -> responseText = getResponseTextFor24hForecastIntent(request);
-            default -> responseText = "I am not sure what you mean. Can you say it in a different way?";
+            case "TurnLightOn" -> responseText = turnLightOn(request);
+            default -> responseText = "Nie jestem pewien, co masz na myśli. Czy możesz to powiedzieć w inny sposób?";
         }
 
         StringWriter stringWriter = new StringWriter();

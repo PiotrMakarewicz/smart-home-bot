@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WeatherBotApiApplication {
+public class SmartHomeBotApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WeatherBotApiApplication.class, args);
+		SpringApplication.run(SmartHomeBotApplication.class, args);
 	}
 
 }
