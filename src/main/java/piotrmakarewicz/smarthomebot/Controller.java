@@ -26,11 +26,13 @@ public class Controller {
     private final TurnLightOffAction turnLightOffAction;
     private final IsLightOnAction isLightOnAction;
     private final DefaultAction defaultAction;
+    private final TurnTelevisionOnAction turnTelevisionOnAction;
 
     @Autowired
-    public Controller(TurnLightOnAction turnLightOnAction, TurnLightOffAction turnLightOffAction, IsLightOnAction isLightOnAction, DefaultAction defaultAction) {
+    public Controller(TurnLightOnAction turnLightOnAction, TurnLightOffAction turnLightOffAction, IsLightOnAction isLightOnAction, DefaultAction defaultAction, TurnTelevisionOnAction turnTelevisionOnAction) {
         this.turnLightOffAction = turnLightOffAction;
         this.isLightOnAction = isLightOnAction;
+        this.turnTelevisionOnAction = turnTelevisionOnAction;
         System.out.println("Controller created");
         this.turnLightOnAction = turnLightOnAction;
         this.defaultAction = defaultAction;
@@ -76,6 +78,7 @@ public class Controller {
             case "TurnLightOn" -> {return turnLightOnAction;}
             case "TurnLightOff" -> {return turnLightOffAction;}
             case "IsLightOn" -> {return isLightOnAction;}
+            case "TurnTelevisionOn" -> {return turnTelevisionOnAction;}
             default -> {return defaultAction;}
         }
     }
