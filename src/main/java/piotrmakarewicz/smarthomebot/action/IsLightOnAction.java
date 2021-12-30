@@ -1,8 +1,10 @@
 package piotrmakarewicz.smarthomebot.action;
 
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2WebhookRequest;
-import piotrmakarewicz.smarthomebot.Room;
+import org.springframework.stereotype.Component;
+import piotrmakarewicz.smarthomebot.home.Room;
 
+@Component
 public class IsLightOnAction extends Action {
     @Override
     public String perform(GoogleCloudDialogflowV2WebhookRequest request) {

@@ -1,4 +1,4 @@
-package piotrmakarewicz.smarthomebot.device;
+package piotrmakarewicz.smarthomebot.home.device;
 
 public class Light {
     public Light(boolean isOn) {

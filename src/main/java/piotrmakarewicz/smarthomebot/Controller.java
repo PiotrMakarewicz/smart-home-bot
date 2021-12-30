@@ -24,11 +24,13 @@ public class Controller {
     private final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
     private final TurnLightOnAction turnLightOnAction;
     private final TurnLightOffAction turnLightOffAction;
+    private final IsLightOnAction isLightOnAction;
     private final DefaultAction defaultAction;
 
     @Autowired
-    public Controller(TurnLightOnAction turnLightOnAction, TurnLightOffAction turnLightOffAction, DefaultAction defaultAction) {
+    public Controller(TurnLightOnAction turnLightOnAction, TurnLightOffAction turnLightOffAction, IsLightOnAction isLightOnAction, DefaultAction defaultAction) {
         this.turnLightOffAction = turnLightOffAction;
+        this.isLightOnAction = isLightOnAction;
         System.out.println("Controller created");
         this.turnLightOnAction = turnLightOnAction;
         this.defaultAction = defaultAction;

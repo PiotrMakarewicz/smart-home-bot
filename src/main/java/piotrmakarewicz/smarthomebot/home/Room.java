@@ -1,6 +1,6 @@
-package piotrmakarewicz.smarthomebot;
+package piotrmakarewicz.smarthomebot.home;
 
-import piotrmakarewicz.smarthomebot.device.Light;
+import piotrmakarewicz.smarthomebot.home.device.Light;
 
 public class Room {
     private final Light light;

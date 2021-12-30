@@ -1,7 +1,7 @@
-package piotrmakarewicz.smarthomebot;
+package piotrmakarewicz.smarthomebot.home;
 
 import org.springframework.stereotype.Component;
-import piotrmakarewicz.smarthomebot.device.Light;
+import piotrmakarewicz.smarthomebot.home.device.Light;
 
 @Component
 public class Home {
