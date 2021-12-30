@@ -75,6 +75,7 @@ public class Controller {
         switch (intentString) {
             case "TurnLightOn" -> {return turnLightOnAction;}
             case "TurnLightOff" -> {return turnLightOffAction;}
+            case "IsLightOn" -> {return isLightOnAction;}
             default -> {return defaultAction;}
         }
     }
