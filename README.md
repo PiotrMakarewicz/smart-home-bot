@@ -1,1 +1,1 @@
-# weather-bot-api
+# Smart Home Bot

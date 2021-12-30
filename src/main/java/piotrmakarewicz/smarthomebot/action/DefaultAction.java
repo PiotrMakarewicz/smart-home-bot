@@ -4,7 +4,7 @@ import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2Webhoo
 import org.springframework.stereotype.Component;
 
 @Component
-public class DefaultAction implements Action{
+public class DefaultAction extends Action {
     @Override
     public String perform(GoogleCloudDialogflowV2WebhookRequest request) {
         return "Nie jestem pewien, co masz na myśli. Czy możesz to powiedzieć w inny sposób?";

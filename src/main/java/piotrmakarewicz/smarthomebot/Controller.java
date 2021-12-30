@@ -58,10 +58,10 @@ public class Controller {
 
         System.out.println("INTENT STRING: "+ intentString);
 
-        Action action = getActionForIntent(intentString);
-        String responseText = action.perform(request);
+        var action = getActionForIntent(intentString);
+        var responseText = action.perform(request);
 
-        StringWriter stringWriter = new StringWriter();
+        var stringWriter = new StringWriter();
         var jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
         var response = createResponseFromStrings(new String[] {responseText});
         jsonGenerator.serialize(response);
