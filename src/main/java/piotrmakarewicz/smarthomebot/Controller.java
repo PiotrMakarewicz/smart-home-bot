@@ -1,4 +1,4 @@
-package piotrmakarewicz.weatherbotapi;
+package piotrmakarewicz.smarthomebot;
 
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2IntentMessage;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import piotrmakarewicz.smarthomebot.action.*;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -21,9 +22,16 @@ import java.util.stream.Collectors;
 @RestController
 public class Controller {
     private final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
+    private final TurnLightOnAction turnLightOnAction;
+    private final TurnLightOffAction turnLightOffAction;
+    private final DefaultAction defaultAction;
 
-    public Controller() {
+    @Autowired
+    public Controller(TurnLightOnAction turnLightOnAction, TurnLightOffAction turnLightOffAction, DefaultAction defaultAction) {
+        this.turnLightOffAction = turnLightOffAction;
         System.out.println("Controller created");
+        this.turnLightOnAction = turnLightOnAction;
+        this.defaultAction = defaultAction;
     }
 
     public GoogleCloudDialogflowV2WebhookResponse createResponseFromStrings(String[] messageStrings){
@@ -39,11 +47,6 @@ public class Controller {
         return response;
     }
 
-    private String turnLightOn(GoogleCloudDialogflowV2WebhookRequest request) {
-        String room = (String) request.getQueryResult().getParameters().get("room");
-        return "Zapalam światło w pomieszczeniu: "+room+ ".";
-    }
-
     @PostMapping(value="/", produces = "application/json")
     public GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody String rawRequest) throws IOException {
         GoogleCloudDialogflowV2WebhookRequest request = jacksonFactory.createJsonParser(rawRequest)
@@ -55,22 +58,23 @@ public class Controller {
 
         System.out.println("INTENT STRING: "+ intentString);
 
-        String responseText;
-
-        switch (intentString) {
-            case "TurnLightOn" -> responseText = turnLightOn(request);
-            default -> responseText = "Nie jestem pewien, co masz na myśli. Czy możesz to powiedzieć w inny sposób?";
-        }
+        Action action = getActionForIntent(intentString);
+        String responseText = action.perform(request);
 
         StringWriter stringWriter = new StringWriter();
         var jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
-
         var response = createResponseFromStrings(new String[] {responseText});
-
         jsonGenerator.serialize(response);
         jsonGenerator.flush();
         return response;
     }
 
+    private Action getActionForIntent(String intentString){
+        switch (intentString) {
+            case "TurnLightOn" -> {return turnLightOnAction;}
+            case "TurnLightOff" -> {return turnLightOffAction;}
+            default -> {return defaultAction;}
+        }
+    }
 
 }
