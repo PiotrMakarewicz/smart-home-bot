@@ -1,8 +1,8 @@
 package piotrmakarewicz.smarthomebot.home.device;
 
 public class Light {
-    public Light(boolean isOn) {
-        this.setOn(isOn);
+    public Light() {
+        this.isOn = true;
     }
     private boolean isOn;
 

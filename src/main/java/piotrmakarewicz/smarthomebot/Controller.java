@@ -10,32 +10,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import piotrmakarewicz.smarthomebot.action.*;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RestController
 public class Controller {
     private final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
-    private final TurnLightOnAction turnLightOnAction;
-    private final TurnLightOffAction turnLightOffAction;
-    private final IsLightOnAction isLightOnAction;
-    private final DefaultAction defaultAction;
-    private final TurnTelevisionOnAction turnTelevisionOnAction;
+    private final Executor executor;
 
     @Autowired
-    public Controller(TurnLightOnAction turnLightOnAction, TurnLightOffAction turnLightOffAction, IsLightOnAction isLightOnAction, DefaultAction defaultAction, TurnTelevisionOnAction turnTelevisionOnAction) {
-        this.turnLightOffAction = turnLightOffAction;
-        this.isLightOnAction = isLightOnAction;
-        this.turnTelevisionOnAction = turnTelevisionOnAction;
-        System.out.println("Controller created");
-        this.turnLightOnAction = turnLightOnAction;
-        this.defaultAction = defaultAction;
+    public Controller(Executor e){
+        this.executor = e;
     }
 
     public GoogleCloudDialogflowV2WebhookResponse createResponseFromStrings(String[] messageStrings){
@@ -46,7 +35,7 @@ public class Controller {
             intentMessageText.setText(List.of(s));
             intentMessage.setText(intentMessageText);
             return intentMessage;
-        }).collect(Collectors.toList());
+        }).toList();
         response.setFulfillmentMessages(intentMessages);
         return response;
     }
@@ -57,13 +46,7 @@ public class Controller {
                 .parse(GoogleCloudDialogflowV2WebhookRequest.class);
 
         System.out.println("RECEIVED REQUEST: " + request);
-
-        var intentString = request.getQueryResult().getIntent().getDisplayName();
-
-        System.out.println("INTENT STRING: "+ intentString);
-
-        var action = getActionForIntent(intentString);
-        var responseText = action.perform(request);
+        var responseText = executor.executeAction(request);
 
         var stringWriter = new StringWriter();
         var jsonGenerator = jacksonFactory.createJsonGenerator(stringWriter);
@@ -71,16 +54,6 @@ public class Controller {
         jsonGenerator.serialize(response);
         jsonGenerator.flush();
         return response;
-    }
-
-    private Action getActionForIntent(String intentString){
-        switch (intentString) {
-            case "TurnLightOn" -> {return turnLightOnAction;}
-            case "TurnLightOff" -> {return turnLightOffAction;}
-            case "IsLightOn" -> {return isLightOnAction;}
-            case "TurnTelevisionOn" -> {return turnTelevisionOnAction;}
-            default -> {return defaultAction;}
-        }
     }
 
 }

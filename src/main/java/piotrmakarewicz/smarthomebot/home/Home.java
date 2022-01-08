@@ -1,17 +1,15 @@
 package piotrmakarewicz.smarthomebot.home;
 
 import org.springframework.stereotype.Component;
-import piotrmakarewicz.smarthomebot.home.device.Light;
-import piotrmakarewicz.smarthomebot.home.device.Television;
 
 @Component
 public class Home {
-    private final Room kitchen = new Room(new Light(true), null);
-    private final Room storage = new Room(new Light(false), null);
-    private final Room livingRoom = new Room(new Light(true), new Television());
-    private final Room bathroom = new Room(new Light(true), null);
-    private final Room bedroom = new Room(new Light(true), null);
-    private final Room basement = new Room(new Light(false), null);
+    private final Room kitchen = new Room().addLight();
+    private final Room storage = new Room().addLight();
+    private final Room livingRoom = new Room().addLight().addTelevision();
+    private final Room bathroom = new Room().addLight();
+    private final Room bedroom = new Room().addLight();
+    private final Room basement = new Room().addLight();
 
     public Room getRoomByName(String name){
         switch (name){
