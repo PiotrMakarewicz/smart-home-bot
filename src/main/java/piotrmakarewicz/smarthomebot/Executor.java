@@ -5,9 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import piotrmakarewicz.smarthomebot.home.Home;
 import piotrmakarewicz.smarthomebot.home.Room;
+import piotrmakarewicz.smarthomebot.home.device.Curtain;
 import piotrmakarewicz.smarthomebot.home.device.Television;
 import piotrmakarewicz.smarthomebot.home.device.TvChannel;
+
+import java.lang.annotation.Target;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class Executor {
@@ -25,10 +29,13 @@ public class Executor {
                             ? (String) request.getQueryResult().getParameters().get("room")
                             : null;
 
-        String tvChannelStr = List.of("SetTelevisionChannel").contains(intent)
+        String tvChannelStr = Objects.equals(intent, "SetTelevisionChannel")
                             ? (String)  request.getQueryResult().getParameters().get("tv-channel")
                             : null;
 
+        int targetTemp = Objects.equals(intent, "SetTargetTemperature")
+                            ? (int) request.getQueryResult().getParameters().get("tv-channel")
+                            : 21;
         switch (intent) {
             case "TurnLightOn" -> {return turnLightOn(roomStr);}
             case "TurnLightOff" -> {return turnLightOff(roomStr);}
@@ -37,9 +44,15 @@ public class Executor {
             case "TurnTelevisionOff" -> {return turnTelevisionOff();}
             case "WhatTelevisionChannel" -> {return whatTelevisionChannel();}
             case "SetTelevisionChannel" -> {return setTelevisionChannel(tvChannelStr);}
+            case "CoverWindow" -> {return coverWindow(roomStr);}
+            case "UncoverWindow" -> {return uncoverWindow(roomStr);}
+            case "CheckActualTemperature" -> {return checkActualTemperature();}
+            case "CheckTargetTemperature" -> {return checkTargetTemperature();}
+            case "SetTargetTemperature" -> {return setTargetTemperature(targetTemp);}
             default -> {return "Nie jestem pewien, co masz na myśli. Czy możesz to powiedzieć w inny sposób?";}
         }
     }
+
 
     private String turnLightOn(String roomStr){
         System.out.println("Executing: turnLightOff("+roomStr+")");
@@ -104,5 +117,44 @@ public class Executor {
         television.setChannel(TvChannel.valueOf(tvChannelStr));
         return responseStr + "Ustawiam kanał na: "+tvChannelStr;
     }
+
+    private String coverWindow(String roomStr) {
+        System.out.println("Executing: coverWindow(" + roomStr + ")");
+        Curtain curtain = home.getRoomByName(roomStr).getCurtain();
+        if (curtain == null)
+            return "Obawiam się, że w pomieszczeniu: " + roomStr + " nie ma zasłon, nie mogę więc odsłonić okna.";
+        if (curtain.isCovering())
+            return "Okno w pomieszczeniu: " + roomStr + " jest już zasłonięte.";
+        curtain.setCovering(true);
+        return "Zasłaniam okno w pomieszczeniu: " + roomStr + ".";
+    }
+    private String uncoverWindow(String roomStr) {
+        System.out.println("Executing: uncoverWindow(" + roomStr + ")");
+        Curtain curtain = home.getRoomByName(roomStr).getCurtain();
+        if (curtain == null)
+            return "Obawiam się, że w pomieszczeniu: " + roomStr + " nie ma zasłon, nie mogę więc odsłonić okna.";
+        if (!curtain.isCovering())
+            return "Okno w pomieszczeniu: " + roomStr + " jest już odsłonięte.";
+        curtain.setCovering(false);
+        return "Odsłaniam okno w pomieszczeniu: " + roomStr + ".";
+    }
+    private String setTargetTemperature(int targetTemp) {
+        System.out.println("Executing: setTargetTemperature(" + targetTemp + ")");
+        home.getRoomByName("basement").getCentralHeating().setTargetTemp(targetTemp);
+        return "Ustawiam temperaturę docelową centralnego ogrzewania na: " + targetTemp + "stopni Celsjusza.";
+    }
+
+    private String checkTargetTemperature() {
+        System.out.println("Executing: checkTargetTemperature()");
+        int targetTemp = home.getRoomByName("basement").getCentralHeating().getTargetTemp();
+        return "Temperatura docelowa centralnego ogrzewania jest obecnie ustawiona na: " + targetTemp + "stopni Celsjusza.";
+    }
+
+    private String checkActualTemperature() {
+        System.out.println("Executing: checkActualTemperature()");
+        int temp = home.getRoomByName("basement").getCentralHeating().getCurrentTemp();
+        return "Temperatura w domu wynosi obecnie: " + temp + "stopni Celsjusza.";
+    }
+
 
 }

@@ -1,11 +1,15 @@
 package piotrmakarewicz.smarthomebot.home;
 
+import piotrmakarewicz.smarthomebot.home.device.CentralHeating;
+import piotrmakarewicz.smarthomebot.home.device.Curtain;
 import piotrmakarewicz.smarthomebot.home.device.Light;
 import piotrmakarewicz.smarthomebot.home.device.Television;
 
 public class Room {
     private Light light;
     private Television television;
+    private CentralHeating centralHeating;
+    private Curtain curtain;
 
     public Room(){
     }
@@ -22,11 +26,31 @@ public class Room {
         return this;
     }
 
+    public Room addCentralHeating(){
+        if (centralHeating == null)
+            centralHeating = new CentralHeating();
+        return this;
+    }
+
+    public Room addCurtain(){
+        if (curtain == null)
+            curtain = new Curtain();
+        return this;
+    }
+
     public Light getLight() {
         return light;
     }
 
     public Television getTelevision(){
         return television;
+    }
+
+    public CentralHeating getCentralHeating() {
+        return centralHeating;
+    }
+
+    public Curtain getCurtain() {
+        return curtain;
     }
 }
