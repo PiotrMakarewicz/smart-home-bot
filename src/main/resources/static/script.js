@@ -29,7 +29,7 @@ function updateView(){
     central_heating_target.innerHTML = state.basement.centralHeating.targetTemp + " \xB0C";
     central_heating_current.innerHTML = state.basement.centralHeating.currentTemp + " \xB0C";
 
-    if (state.livingRoom.television.isOn){
+    if (state.livingRoom.television.on){
         living_room_television.innerHTML = state.livingRoom.television.channel;
     } else{
         living_room_television.innerHTML = "<span class='text-danger'>wyłączony</span>";
