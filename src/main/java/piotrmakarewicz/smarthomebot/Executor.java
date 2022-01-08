@@ -25,9 +25,7 @@ public class Executor {
     public String executeAction(GoogleCloudDialogflowV2WebhookRequest request){
 
         String intent = request.getQueryResult().getIntent().getDisplayName();
-        String roomStr = List.of("TurnLightOn", "TurnLightOff", "IsLightOn").contains(intent)
-                            ? (String) request.getQueryResult().getParameters().get("room")
-                            : null;
+        String roomStr = (String) request.getQueryResult().getParameters().get("room");
 
         String tvChannelStr = Objects.equals(intent, "SetTelevisionChannel")
                             ? (String)  request.getQueryResult().getParameters().get("tv-channel")
