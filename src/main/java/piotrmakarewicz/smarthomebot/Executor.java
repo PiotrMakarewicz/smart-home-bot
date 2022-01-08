@@ -32,6 +32,7 @@ public class Executor {
             case "IsLightOn" -> {return isLightOn(roomStr);}
             case "TurnTelevisionOn" -> {return turnTelevisionOn();}
             case "TurnTelevisionOff" -> {return turnTelevisionOff();}
+            case "WhatTelevisionChannel" -> {return whatTelevisionChannel();}
             default -> {return "Nie jestem pewien, co masz na myśli. Czy możesz to powiedzieć w inny sposób?";}
         }
     }
@@ -75,6 +76,15 @@ public class Executor {
             television.setChannel(null);
             return "Wyłączam telewizor!";
         }
+    }
+
+    private String whatTelevisionChannel(){
+        System.out.println("Executing: whatTelevisionChannel()");
+        Television television = home.getRoomByName("salon").getTelevision();
+        if (!television.isOn())
+            return "Telewizor jest wyłączony, więc nie ma żadnego włączonego kanału.";
+        else
+            return "Kanał, który obecnie jest na telewizorze to: "+ television.getChannel().name();
     }
 
 }
