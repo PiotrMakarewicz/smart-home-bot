@@ -9,6 +9,7 @@ import piotrmakarewicz.smarthomebot.home.device.Curtain;
 import piotrmakarewicz.smarthomebot.home.device.Television;
 import piotrmakarewicz.smarthomebot.home.device.TvChannel;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,7 +34,7 @@ public class Executor {
                             : null;
 
         int targetTemp = Objects.equals(intent, "SetTargetTemperature")
-                            ? (int) request.getQueryResult().getParameters().get("target-temp")
+                            ? ((BigDecimal) request.getQueryResult().getParameters().get("target-temp")).intValue()
                             : 21;
         switch (intent) {
             case "TurnLightOn" -> {return turnLightOn(roomStr);}
