@@ -139,13 +139,13 @@ public class Executor {
     }
     private String setTargetTemperature(int targetTemp) {
         System.out.println("Executing: setTargetTemperature(" + targetTemp + ")");
-        home.getRoomByName("kotłownia").getCentralHeating().setTargetTemp(targetTemp);
+        home.getBasement().getCentralHeating().setTargetTemp(targetTemp);
         return "Ustawiam temperaturę docelową centralnego ogrzewania na: " + targetTemp + "stopni Celsjusza.";
     }
 
     private String checkTargetTemperature() {
         System.out.println("Executing: checkTargetTemperature()");
-        int targetTemp = home.getRoomByName("kotłownia").getCentralHeating().getTargetTemp();
+        int targetTemp = home.getBasement().getCentralHeating().getTargetTemp();
         return "Temperatura docelowa centralnego ogrzewania jest obecnie ustawiona na: " + targetTemp + "stopni Celsjusza.";
     }
 

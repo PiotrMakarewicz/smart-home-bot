@@ -24,7 +24,7 @@ public class HomeTest {
         Room livingRoom = home.getRoomByName("salon");
         Room bathroom = home.getRoomByName("łazienka");
         Room bedroom = home.getRoomByName("sypialnia");
-        Room basement = home.getRoomByName("kotłownia");
+        Room basement = home.getRoomByName("piwnica");
 
         // then
         for (Room room: List.of(kitchen, livingRoom, bathroom, bedroom, basement)){

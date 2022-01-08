@@ -18,7 +18,7 @@ public class Home {
             case "salon" -> {return livingRoom;}
             case "łazienka" -> {return bathroom;}
             case "sypialnia" -> {return bedroom;}
-            case "kotłownia" -> {return basement;}
+            case "piwnica" -> {return basement;}
             default -> {return null;}
         }
     }
