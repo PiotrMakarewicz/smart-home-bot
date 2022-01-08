@@ -33,7 +33,7 @@ public class Executor {
                             : null;
 
         int targetTemp = Objects.equals(intent, "SetTargetTemperature")
-                            ? (int) request.getQueryResult().getParameters().get("tv-channel")
+                            ? (int) request.getQueryResult().getParameters().get("target-temp")
                             : 21;
         switch (intent) {
             case "TurnLightOn" -> {return turnLightOn(roomStr);}
