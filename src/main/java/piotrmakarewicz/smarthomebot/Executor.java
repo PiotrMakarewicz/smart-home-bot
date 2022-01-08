@@ -53,7 +53,6 @@ public class Executor {
         }
     }
 
-
     private String turnLightOn(String roomStr){
         System.out.println("Executing: turnLightOff("+roomStr+")");
         home.getRoomByName(roomStr).getLight().setOn(true);

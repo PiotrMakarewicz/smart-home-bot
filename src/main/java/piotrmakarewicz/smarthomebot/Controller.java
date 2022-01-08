@@ -7,9 +7,10 @@ import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2Webhoo
 import com.google.api.services.dialogflow.v3.model.GoogleCloudDialogflowV2WebhookResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
+import piotrmakarewicz.smarthomebot.home.Home;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -21,10 +22,12 @@ import java.util.List;
 public class Controller {
     private final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
     private final Executor executor;
+    private final Home home;
 
     @Autowired
-    public Controller(Executor e){
+    public Controller(Executor e, Home h){
         this.executor = e;
+        this.home = h;
     }
 
     public GoogleCloudDialogflowV2WebhookResponse createResponseFromStrings(String[] messageStrings){
@@ -40,8 +43,20 @@ public class Controller {
         return response;
     }
 
+    @GetMapping("/")
+    public RedirectView getIndex(Model model){
+        return new RedirectView("index.html");
+    }
+
+    @GetMapping("/state")
+    @ResponseBody
+    public Home getState(){
+        System.out.println("Światło w kuchni" + home.getKitchen().getLight().isOn());
+        return home;
+    }
+
     @PostMapping(value="/", produces = "application/json")
-    public GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody String rawRequest) throws IOException {
+    public GoogleCloudDialogflowV2WebhookResponse handleDialogflowRequest(@RequestBody String rawRequest) throws IOException {
         GoogleCloudDialogflowV2WebhookRequest request = jacksonFactory.createJsonParser(rawRequest)
                 .parse(GoogleCloudDialogflowV2WebhookRequest.class);
 

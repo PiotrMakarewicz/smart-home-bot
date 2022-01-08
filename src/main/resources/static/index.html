@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartHomeBot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+        intent="WELCOME"
+        chat-title="SmartHomeBot"
+        agent-id="baf60cf7-ffe9-420a-8731-84e344947109"
+        language-code="pl"
+></df-messenger>
+<div id="state"></div>
+<script>
+    window.setInterval(() => {
+        let stateDiv = document.getElementById("state");
+        fetch("/state")
+            .then(response => response.json())
+            .then(data => {console.log(data); stateDiv.innerText = JSON.stringify(data)})
+    }, 500);
+</script>
+</body>
+</html>

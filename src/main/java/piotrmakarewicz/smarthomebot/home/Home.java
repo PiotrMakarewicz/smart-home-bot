@@ -1,8 +1,10 @@
 package piotrmakarewicz.smarthomebot.home;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class Home {
     private final Room kitchen = new Room().addLight();
     private final Room livingRoom = new Room().addLight().addTelevision();
@@ -19,5 +21,25 @@ public class Home {
             case "kotłownia" -> {return basement;}
             default -> {return null;}
         }
+    }
+
+    public Room getKitchen() {
+        return kitchen;
+    }
+
+    public Room getLivingRoom() {
+        return livingRoom;
+    }
+
+    public Room getBathroom() {
+        return bathroom;
+    }
+
+    public Room getBedroom() {
+        return bedroom;
+    }
+
+    public Room getBasement() {
+        return basement;
     }
 }
