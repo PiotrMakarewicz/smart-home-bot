@@ -5,7 +5,7 @@
     <title>SmartHomeBot</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-secondary">
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <df-messenger
         intent="WELCOME"
@@ -13,14 +13,21 @@
         agent-id="baf60cf7-ffe9-420a-8731-84e344947109"
         language-code="pl"
 ></df-messenger>
-<div id="state"></div>
-<script>
-    window.setInterval(() => {
-        let stateDiv = document.getElementById("state");
-        fetch("/state")
-            .then(response => response.json())
-            .then(data => {console.log(data); stateDiv.innerText = JSON.stringify(data)})
-    }, 500);
-</script>
+<div class="text-center" style="margin-top:20px;"><span class="bg-primary display-1 text-light p-2 font-weight-bold rounded-lg shadow-lg">SmartHomeBot</span></div>
+<div id="stateDescription" style="width: 38.2%; margin-top: 50px; margin-left: 250px">
+    <table class="table table-bordered font-weight-bold fs-1 bg-light rounded rounded-lg shadow-lg">
+        <tr><td>KUCHNIA</td><td>oświetlenie</td><td id="kitchen-light"></td></tr>
+        <tr class="bg-light"><td rowspan="2">ŁAZIENKA</td><td>oświetlenie</td><td id="bathroom-light"></td></tr>
+        <tr class="bg-light"><td>zasłony</td><td id="bathroom-curtain"></td></tr>
+        <tr><td rowspan="2">SYPIALNIA</td><td>oświetlenie</td><td id="bedroom-light"></td></tr>
+        <tr><td>zasłony</td><td id="bedroom-curtain"></td></tr>
+        <tr class="bg-light"><td rowspan="2">SALON</td><td>oświetlenie</td><td id="living-room-light"></td></tr>
+        <tr class="bg-light"><td>telewizor</td><td id="living-room-television"></td></tr>
+        <tr><td>PIWNICA</td><td>oświetlenie</td><td id="basement-light"></td></tr>
+        <tr class="bg-light"><td rowspan="2">CENTRALNE OGRZEWANIE</td><td>temperatura docelowa</td><td id="central-heating-target"></td></tr>
+        <tr class="bg-light"><td>temperatura obecna</td><td id="central-heating-current"></td></tr>
+    </table>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

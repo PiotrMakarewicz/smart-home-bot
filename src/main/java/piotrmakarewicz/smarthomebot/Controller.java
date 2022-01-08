@@ -51,7 +51,6 @@ public class Controller {
     @GetMapping("/state")
     @ResponseBody
     public Home getState(){
-        System.out.println("Światło w kuchni" + home.getKitchen().getLight().isOn());
         return home;
     }
 
