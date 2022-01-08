@@ -140,7 +140,7 @@ public class Executor {
     }
     private String setTargetTemperature(int targetTemp) {
         System.out.println("Executing: setTargetTemperature(" + targetTemp + ")");
-        home.getRoomByName("basement").getCentralHeating().setTargetTemp(targetTemp);
+        home.getRoomByName("kotłownia").getCentralHeating().setTargetTemp(targetTemp);
         return "Ustawiam temperaturę docelową centralnego ogrzewania na: " + targetTemp + "stopni Celsjusza.";
     }
 

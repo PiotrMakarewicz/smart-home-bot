@@ -21,14 +21,13 @@ public class HomeTest {
 
         // when
         Room kitchen = home.getRoomByName("kuchnia");
-        Room storage = home.getRoomByName("spiżarnia");
         Room livingRoom = home.getRoomByName("salon");
         Room bathroom = home.getRoomByName("łazienka");
         Room bedroom = home.getRoomByName("sypialnia");
         Room basement = home.getRoomByName("kotłownia");
 
         // then
-        for (Room room: List.of(kitchen, storage, livingRoom, bathroom, bedroom, basement)){
+        for (Room room: List.of(kitchen, livingRoom, bathroom, bedroom, basement)){
             assertNotNull(room);
             assertNotNull(room.getLight());
         }
