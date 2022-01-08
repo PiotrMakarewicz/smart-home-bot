@@ -8,7 +8,7 @@ public class Home {
     private final Room livingRoom = new Room().addLight().addTelevision();
     private final Room bathroom = new Room().addLight().addCurtain();
     private final Room bedroom = new Room().addLight().addCurtain();
-    private final Room basement = new Room().addLight();
+    private final Room basement = new Room().addLight().addCentralHeating();
 
     public Room getRoomByName(String name){
         switch (name){

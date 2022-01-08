@@ -9,7 +9,6 @@ import piotrmakarewicz.smarthomebot.home.device.Curtain;
 import piotrmakarewicz.smarthomebot.home.device.Television;
 import piotrmakarewicz.smarthomebot.home.device.TvChannel;
 
-import java.lang.annotation.Target;
 import java.util.List;
 import java.util.Objects;
 
