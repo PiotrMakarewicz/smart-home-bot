@@ -22,9 +22,12 @@ public class Executor {
 
         String intent = request.getQueryResult().getIntent().getDisplayName();
         String roomStr = List.of("TurnLightOn", "TurnLightOff", "IsLightOn").contains(intent)
-                    ? (String) request.getQueryResult().getParameters().get("room")
-                    : null;
+                            ? (String) request.getQueryResult().getParameters().get("room")
+                            : null;
 
+        String tvChannelStr = List.of("SetTelevisionChannel").contains(intent)
+                            ? (String)  request.getQueryResult().getParameters().get("tv-channel")
+                            : null;
 
         switch (intent) {
             case "TurnLightOn" -> {return turnLightOn(roomStr);}
@@ -33,17 +36,20 @@ public class Executor {
             case "TurnTelevisionOn" -> {return turnTelevisionOn();}
             case "TurnTelevisionOff" -> {return turnTelevisionOff();}
             case "WhatTelevisionChannel" -> {return whatTelevisionChannel();}
+            case "SetTelevisionChannel" -> {return setTelevisionChannel(tvChannelStr);}
             default -> {return "Nie jestem pewien, co masz na myśli. Czy możesz to powiedzieć w inny sposób?";}
         }
     }
 
     private String turnLightOn(String roomStr){
         System.out.println("Executing: turnLightOff("+roomStr+")");
+        home.getRoomByName(roomStr).getLight().setOn(true);
         return "Zapalam światło w pomieszczeniu: "+roomStr+ ".";
     }
 
     private String turnLightOff(String roomStr){
         System.out.println("Executing: turnLightOff("+roomStr+")");
+        home.getRoomByName(roomStr).getLight().setOn(false);
         return "Gaszę światło w pomieszczeniu: "+roomStr+ ".";
     }
 
@@ -85,6 +91,18 @@ public class Executor {
             return "Telewizor jest wyłączony, więc nie ma żadnego włączonego kanału.";
         else
             return "Kanał, który obecnie jest na telewizorze to: "+ television.getChannel().name();
+    }
+
+    private String setTelevisionChannel(String tvChannelStr) {
+        System.out.println("Executing: setTelevisionChannel("+tvChannelStr+")");
+        Television television = home.getRoomByName("salon").getTelevision();
+        String responseStr = "";
+        if (! television.isOn()){
+            responseStr += "Telewizor był wyłączony, więc go włączam. ";
+            television.setOn(true);
+        }
+        television.setChannel(TvChannel.valueOf(tvChannelStr));
+        return responseStr + "Ustawiam kanał na: "+tvChannelStr;
     }
 
 }
