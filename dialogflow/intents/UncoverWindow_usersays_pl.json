@@ -1,0 +1,82 @@
+[
+  {
+    "id": "5732a2c8-c0d1-4edf-988b-270b4070c06f",
+    "data": [
+      {
+        "text": "odsuń zasłony w ",
+        "userDefined": false
+      },
+      {
+        "text": "sypialni",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "32cd7e06-a091-494b-a312-f4231d0ebe9f",
+    "data": [
+      {
+        "text": "osłoń",
+        "userDefined": false
+      },
+      {
+        "text": " zasłony w ",
+        "userDefined": false
+      },
+      {
+        "text": "sypialni",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "2f7bbdfc-59cc-48f7-8f9c-b792ae322bf2",
+    "data": [
+      {
+        "text": "zwiń rolety w ",
+        "userDefined": false
+      },
+      {
+        "text": "łazience",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "18cd9e5b-7060-4e8b-93fb-0f61bde85b2d",
+    "data": [
+      {
+        "text": "odsłoń okno w ",
+        "userDefined": false
+      },
+      {
+        "text": "łazience",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

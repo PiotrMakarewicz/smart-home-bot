@@ -1,0 +1,52 @@
+{
+  "id": "f7903168-0851-492a-b1ae-be32f6a88051",
+  "name": "UncoverWindow",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "651f7be4-ef86-40df-8348-f0f2ea01aed6",
+          "name": "room",
+          "required": true,
+          "dataType": "@room",
+          "value": "$room",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "pl",
+              "value": "W jakim pomieszczeniu?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "pl",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

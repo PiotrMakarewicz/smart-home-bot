@@ -1,0 +1,54 @@
+[
+  {
+    "id": "bd4a0825-3e67-4148-aa68-f187a8656e18",
+    "data": [
+      {
+        "text": "uruchom telewizor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "a870f3ff-279b-4ebd-a481-7f7cc75fd835",
+    "data": [
+      {
+        "text": "uruchom telewizję",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "0204b3c1-a59d-44c0-9852-b8c07c6be49a",
+    "data": [
+      {
+        "text": "włącz telewizję",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "d5979261-a8bd-40e7-8acf-62fab0c85788",
+    "data": [
+      {
+        "text": "włącz telewizor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

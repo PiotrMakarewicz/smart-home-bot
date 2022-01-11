@@ -1,0 +1,44 @@
+{
+  "id": "a51d0b37-8395-42a4-a75a-35e6b160b0e9",
+  "name": "TurnLightOn",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "8bbbfc27-48bd-44bc-b82f-fe0e921e9527",
+          "name": "room",
+          "required": true,
+          "dataType": "@room",
+          "value": "$room",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "pl",
+              "value": "W którym pomieszczeniu?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

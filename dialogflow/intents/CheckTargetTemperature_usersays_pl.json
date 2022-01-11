@@ -1,0 +1,65 @@
+[
+  {
+    "id": "c8d9d568-b2d9-4b3b-811f-49e60ace7de1",
+    "data": [
+      {
+        "text": "jaka",
+        "userDefined": false
+      },
+      {
+        "text": " jest temeperatuta docelowa?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "73b5046b-141f-4606-ac3c-e82b893d2884",
+    "data": [
+      {
+        "text": "jaka",
+        "userDefined": false
+      },
+      {
+        "text": " temepratura docelowa jest ustawiona?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "42ea6381-ff82-49d2-885a-306eeec80194",
+    "data": [
+      {
+        "text": "na ",
+        "userDefined": false
+      },
+      {
+        "text": "jaką",
+        "userDefined": false
+      },
+      {
+        "text": " temperaturę grzeje ",
+        "userDefined": false
+      },
+      {
+        "text": "piec",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "d648238b-3bb5-4d28-ab4d-8ac4838670d3",
+    "data": [
+      {
+        "text": "rozwiń rolety w ",
+        "userDefined": false
+      },
+      {
+        "text": "łazience",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "b43588b7-c14d-4268-b59a-2024ed734d19",
+    "data": [
+      {
+        "text": "zasłoń ",
+        "userDefined": false
+      },
+      {
+        "text": "okno",
+        "userDefined": false
+      },
+      {
+        "text": " w ",
+        "userDefined": false
+      },
+      {
+        "text": "sypialni",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

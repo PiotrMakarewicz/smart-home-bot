@@ -1,0 +1,73 @@
+[
+  {
+    "id": "187749f4-e7c1-4c24-8656-77bea3c97b6a",
+    "data": [
+      {
+        "text": "jak ciepło jest w ",
+        "userDefined": false
+      },
+      {
+        "text": "domu",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "95c2bf57-b028-446e-a651-43744fd2356c",
+    "data": [
+      {
+        "text": "ile",
+        "userDefined": false
+      },
+      {
+        "text": " jest stopni w ",
+        "userDefined": false
+      },
+      {
+        "text": "domu",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "cde0323a-3efd-4fe3-a56a-793b1026b6c8",
+    "data": [
+      {
+        "text": "jaka",
+        "userDefined": false
+      },
+      {
+        "text": " temperatura panuje obecnie w ",
+        "userDefined": false
+      },
+      {
+        "text": "domu",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

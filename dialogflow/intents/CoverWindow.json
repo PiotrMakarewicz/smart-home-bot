@@ -1,0 +1,52 @@
+{
+  "id": "839fd1c8-f27a-4f9c-8d5f-047188b48a1e",
+  "name": "CoverWindow",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "dfe13b1e-6236-44e4-ae39-bc092902fbf1",
+          "name": "room",
+          "required": true,
+          "dataType": "@room",
+          "value": "$room",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "pl",
+              "value": "W którym pomieszczeniu?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "pl",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

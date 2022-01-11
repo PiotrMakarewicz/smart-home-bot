@@ -1,0 +1,44 @@
+[
+  {
+    "id": "873506af-b3f6-48c8-969e-f5372ae0c67c",
+    "data": [
+      {
+        "text": "wyłącz oświetlenie w ",
+        "userDefined": false
+      },
+      {
+        "text": "łazience",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "e7331930-4932-49b1-9159-0478d9806c70",
+    "data": [
+      {
+        "text": "zgaś",
+        "userDefined": false
+      },
+      {
+        "text": " światło w ",
+        "userDefined": false
+      },
+      {
+        "text": "salonie",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

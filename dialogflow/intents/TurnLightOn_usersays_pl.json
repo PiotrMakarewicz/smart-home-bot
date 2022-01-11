@@ -1,0 +1,40 @@
+[
+  {
+    "id": "dacaeaff-a0c4-4cbd-89bb-704f1ec9ac1f",
+    "data": [
+      {
+        "text": "włącz oświetlenie na ",
+        "userDefined": false
+      },
+      {
+        "text": "korytarzu",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "7b5122d3-50a7-4b9b-a890-1ad969119c58",
+    "data": [
+      {
+        "text": "zapal światło w ",
+        "userDefined": false
+      },
+      {
+        "text": "kuchni",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

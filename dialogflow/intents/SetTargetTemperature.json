@@ -1,0 +1,52 @@
+{
+  "id": "c3e05d56-83c8-4e3d-a64c-1a6331d000c9",
+  "name": "SetTargetTemperature",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "61e640d5-85c1-4dfd-879d-9af003cdd24c",
+          "name": "target-temp",
+          "required": true,
+          "dataType": "@sys.number-integer",
+          "value": "$target-temp",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "pl",
+              "value": "Jaka temperatura docelowa w stopniach Celsjusza?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "pl",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

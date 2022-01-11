@@ -1,0 +1,25 @@
+[
+  {
+    "id": "3dc17bfd-8683-4d52-a4ee-3930debf7000",
+    "data": [
+      {
+        "text": " czy w ",
+        "userDefined": false
+      },
+      {
+        "text": "kuchni",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      },
+      {
+        "text": " pali się światło",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

@@ -1,0 +1,103 @@
+[
+  {
+    "id": "2ede88c7-b571-4c20-8a90-0c6d4c942f46",
+    "data": [
+      {
+        "text": "zmień temperaturę w ",
+        "userDefined": false
+      },
+      {
+        "text": "domu",
+        "userDefined": false
+      },
+      {
+        "text": " na ",
+        "userDefined": false
+      },
+      {
+        "text": "trzydzieści",
+        "meta": "@sys.number-integer",
+        "alias": "target-temp",
+        "userDefined": false
+      },
+      {
+        "text": " stopni",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "99a16509-800c-47aa-95af-157b9b16254e",
+    "data": [
+      {
+        "text": "ustal temperaturę docelową centralnego ogrzewania na ",
+        "userDefined": false
+      },
+      {
+        "text": "dziewiętnaście",
+        "meta": "@sys.number-integer",
+        "alias": "target-temp",
+        "userDefined": true
+      },
+      {
+        "text": " stopni",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "d5cee894-e4c0-4b6f-897f-d76b61668e41",
+    "data": [
+      {
+        "text": "ustaw ",
+        "userDefined": false
+      },
+      {
+        "text": "piec",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "by",
+        "userDefined": false
+      },
+      {
+        "text": " grzał ",
+        "userDefined": false
+      },
+      {
+        "text": "na",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "dwadzieścia jeden",
+        "meta": "@sys.number-integer",
+        "alias": "target-temp",
+        "userDefined": true
+      },
+      {
+        "text": " stopni",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "51a4111d-b42e-4ad3-b25f-a8983ed66d00",
+    "data": [
+      {
+        "text": "czy w ",
+        "userDefined": false
+      },
+      {
+        "text": "kuchni",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      },
+      {
+        "text": " jest zapalone światło?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "7011bb9b-1904-4f06-8a8d-cab3aa7977aa",
+    "data": [
+      {
+        "text": "czy w ",
+        "userDefined": false
+      },
+      {
+        "text": "łazience",
+        "meta": "@room",
+        "alias": "room",
+        "userDefined": true
+      },
+      {
+        "text": " świeci się światło?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  }
+]

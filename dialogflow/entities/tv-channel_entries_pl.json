@@ -1,0 +1,40 @@
+[
+  {
+    "value": "TVP1",
+    "synonyms": [
+      "TVP1",
+      "jedynka",
+      "jedynkę",
+      "jedynce",
+      "jeden",
+      "t v p jeden"
+    ]
+  },
+  {
+    "value": "TVP2",
+    "synonyms": [
+      "TVP2",
+      "dwójka",
+      "dwójki",
+      "dwójce",
+      "dwójką",
+      "t v p dwa",
+      "dwójkę"
+    ]
+  },
+  {
+    "value": "POLSAT",
+    "synonyms": [
+      "Polsat",
+      "Polsatu",
+      "Polsatem"
+    ]
+  },
+  {
+    "value": "TVN",
+    "synonyms": [
+      "TVN",
+      "t v n"
+    ]
+  }
+]

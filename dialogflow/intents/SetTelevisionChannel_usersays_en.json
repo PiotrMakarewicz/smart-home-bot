@@ -1,0 +1,40 @@
+[
+  {
+    "id": "072d5b2b-654d-4507-8ca6-f6c6629c0c79",
+    "data": [
+      {
+        "text": "przełącz kanał na ",
+        "userDefined": false
+      },
+      {
+        "text": "TVP2",
+        "meta": "@tv-channel",
+        "alias": "tv-channel",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a0b1b128-6f8e-4e16-81da-4fdc5b774770",
+    "data": [
+      {
+        "text": "włącz ",
+        "userDefined": false
+      },
+      {
+        "text": "jedynkę",
+        "meta": "@tv-channel",
+        "alias": "tv-channel",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

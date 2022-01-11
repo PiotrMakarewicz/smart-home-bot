@@ -1,0 +1,67 @@
+[
+  {
+    "id": "b3eeffc2-dd0a-4144-ac82-935a0184fd5e",
+    "data": [
+      {
+        "text": "Przełącz kanał na ",
+        "userDefined": false
+      },
+      {
+        "text": "dwójkę",
+        "meta": "@tv-channel",
+        "alias": "tv-channel",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "d9197324-8e01-417c-8607-9b701771ffa8",
+    "data": [
+      {
+        "text": "włącz ",
+        "userDefined": false
+      },
+      {
+        "text": "jedynkę",
+        "meta": "@tv-channel",
+        "alias": "tv-channel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pl",
+    "updated": 0
+  },
+  {
+    "id": "3a2a3107-3e05-43ec-afca-e4d60f73aace",
+    "data": [
+      {
+        "text": "przełącz ",
+        "userDefined": false
+      },
+      {
+        "text": "kanał",
+        "userDefined": false
+      },
+      {
+        "text": " na ",
+        "userDefined": false
+      },
+      {
+        "text": "polsat",
+        "meta": "@tv-channel",
+        "alias": "tv-channel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "lang": "pl",
+    "updated": 0
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "id": "c604990f-607b-4b24-879e-0935c4f04b41",
+  "name": "tv-channel",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

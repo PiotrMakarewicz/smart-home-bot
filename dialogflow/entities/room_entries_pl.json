@@ -1,0 +1,48 @@
+[
+  {
+    "value": "kuchnia",
+    "synonyms": [
+      "kuchnia",
+      "kuchni",
+      "kuchnię",
+      "kuchnią"
+    ]
+  },
+  {
+    "value": "salon",
+    "synonyms": [
+      "salon",
+      "salonie"
+    ]
+  },
+  {
+    "value": "sypialnia",
+    "synonyms": [
+      "sypialnia",
+      "pokój",
+      "sypialni",
+      "pokoju"
+    ]
+  },
+  {
+    "value": "piwnica",
+    "synonyms": [
+      "kotłownia",
+      "kotłowni",
+      "kotłownią",
+      "piwnica",
+      "piwnicy",
+      "piwnicę",
+      "piwnicą"
+    ]
+  },
+  {
+    "value": "łazienka",
+    "synonyms": [
+      "łazienka",
+      "łaźnia",
+      "łazience",
+      "łazienką"
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "id": "fa1fd1b2-baf0-4017-b648-3e8127ced9bc",
+  "name": "Default Welcome Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.welcome",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "pl",
+          "speech": [
+            "Cześć! Jestem SmartHomeBot i zarządzam Twoim inteligentnym domem. Mogę zapalać i gasić światło w kuchni, salonie, łazience, sypialni i piwnicy. Potrafię również włączać i wyłączać telewizor, przełączać na nim kanały, zasłaniać i odsłaniać okna i zmieniać temperaturę w mieszkaniu, oczywiście za pośrednictwem pieca. W czym mogę Ci pomóc?"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Welcome. I can tell you results of the last race or when the next one starts. Which would you like?",
+            "Hello. I can tell you results of the last race or when the next one starts. How can I help you?",
+            "Hello. I can tell you results of the last race or when the next one starts. What can I do for you?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
